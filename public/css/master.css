@@ -1,0 +1,334 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/* ===========================================
+ Colours
+============================================= */
+
+/* ==========================================================
+! mixins
+========================================================== */
+
+/* ===========================================
+ Generic
+============================================= */
+
+body {
+  background: #ecf0f5;
+  color: #666;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .col-sm-center-offset-1 {
+    margin-left: 4.165%;
+    margin-right: 4.165%;
+  }
+}
+
+.btn-primary {
+  background: #006FF5;
+}
+
+.btn-primary:hover {
+  background: #286090;
+}
+
+/* ===========================================
+ Header
+============================================= */
+
+/* ===========================================
+ Navbar
+============================================= */
+
+.navbar a {
+  color: #fff;
+}
+
+.navbar a:hover,
+.nav > li > a:hover {
+  background: #285070;
+  color: #fff;
+}
+
+/* ===========================================
+ Top Level
+============================================= */
+
+.navbar {
+  background: #3c8dbc;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  text-shadow: #000 1px 0 10px;
+}
+
+.navbar-brand:hover {
+  text-shadow: #fff 1px 0 10px;
+}
+
+#brand-image {
+  display: inline-block;
+  margin-top: -15px;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background: #222d32;
+}
+
+/* ===========================================
+ Toggle Menu
+============================================= */
+
+.navbar-toggle {
+  border-color: #fff;
+}
+
+.navbar-toggle .icon-bar {
+  background: #fff;
+}
+
+.navbar-toggle:hover {
+  background: #285070;
+}
+
+.navbar-header button:not(.collapsed) {
+  background: #222d32;
+}
+
+.navbar-header button:not(.collapsed):hover {
+  background: #285070;
+}
+
+/* ===========================================
+ submenu
+============================================= */
+
+.dropdown-menu {
+  background: #285070;
+  padding: 0;
+}
+
+.dropdown-menu .divider {
+  margin: 0;
+}
+
+.dropdown-menu li:not(.divider) a {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.dropdown-menu > li > a {
+  color: #fff;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #3c8dbc;
+  color: #fff;
+}
+
+.navbar-nav .open .dropdown-menu {
+  background: #285070;
+}
+
+.logo,
+.about,
+.account,
+.career,
+.signup,
+.story,
+.support,
+.team {
+  -o-object-fit: none;
+     object-fit: none;
+}
+
+.logo {
+  height: 40px;
+  -o-object-position: -20px 0;
+     object-position: -20px 0;
+  width: 40px;
+}
+
+.about,
+.account,
+.career,
+.signup,
+.story,
+.support,
+.team {
+  height: 20px;
+  width: 20px;
+}
+
+.about {
+  -o-object-position: -20px -60px;
+     object-position: -20px -60px;
+}
+
+.account {
+  -o-object-position: -20px -100px;
+     object-position: -20px -100px;
+}
+
+.career {
+  -o-object-position: -20px -140px;
+     object-position: -20px -140px;
+}
+
+.signup {
+  -o-object-position: -20px -180px;
+     object-position: -20px -180px;
+}
+
+.story {
+  -o-object-position: -20px -220px;
+     object-position: -20px -220px;
+}
+
+.support {
+  -o-object-position: -20px -260px;
+     object-position: -20px -260px;
+}
+
+.team {
+  -o-object-position: -20px -300px;
+     object-position: -20px -300px;
+}
+
+/* ===========================================
+ Main
+============================================= */
+
+.restaurants {
+  margin: auto;
+  padding-left: 0;
+}
+
+.restaurants li {
+  list-style: none;
+}
+
+.restaurant {
+  background: #fff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 260px;
+  padding: 15px;
+}
+
+.more-info {
+  padding-left: 0;
+}
+
+.more-info li {
+  border-bottom: 1px dashed #d9d9d9;
+  list-style: none;
+}
+
+.more-info li:last-child {
+  border-bottom: 0;
+}
+
+.more-info .field-name {
+  font-weight: bold;
+}
+
+.desc-value {
+  word-break: break-word;
+}
+
+.more-btn {
+  margin-top: 5px;
+  width: 100%;
+}
+
+/* ==========================================================
+! Scroll to top link
+========================================================== */
+
+#return-to-top {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 20px;
+  display: none;
+  height: 50px;
+  position: fixed;
+  right: 50%;
+  text-decoration: none;
+  -webkit-transition: all .3s linear;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  width: 50px;
+  z-index: 5;
+}
+
+#return-to-top i {
+  color: #fff;
+  font-size: 19px;
+  left: 16px;
+  margin: 0;
+  position: relative;
+  top: 13px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#return-to-top:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+  color: #fff;
+}
+
+/* ===========================================
+ Footer
+============================================= */
+
+.pagefooter {
+  background: #222d32;
+  color: #aaa;
+  margin-bottom: 10px;
+  margin-top: 60px;
+  padding: 0 0 30px;
+}
+
+.pagefooter a {
+  color: #aaa;
+}
+
+.footer-widget {
+  margin: 30px 0 0;
+}
+
+.footer-widget ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-widget h3 {
+  border-bottom: 1px solid #5a5a5a;
+  color: #fff;
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+  text-align: center;
+}
+
+.copyright {
+  border-bottom: 3px double #5a5a5a;
+  border-top: 3px double #5a5a5a;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-widget ul li {
+    display: inline-block;
+  }
+}
+

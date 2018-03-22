@@ -1,0 +1,168 @@
+/* ===========================================
+ Header
+============================================= */
+
+/* ===========================================
+ Navbar
+============================================= */
+  
+  .navbar a {
+    color: $white;
+  }
+  
+  .navbar a:hover,
+  .nav > li > a:hover {
+    background: #285070;
+    color: $white;
+  }
+  
+  
+/* ===========================================
+ Top Level
+============================================= */
+
+.navbar {
+    background: #3c8dbc;
+  }
+  
+  .navbar-brand {
+    font-size: 25px;
+    text-shadow: $black 1px 0 10px;
+  
+    &:hover {
+      text-shadow: $white 1px 0 10px;
+    }
+  }
+  
+//   .navbar-brand > 
+  #brand-image {
+    display: inline-block;
+    margin-top: -15px;
+  }
+
+  .nav .open > a,
+  .nav .open > a:hover,
+  .nav .open > a:focus {
+    background: #222d32;
+  }
+  
+
+/* ===========================================
+ Toggle Menu
+============================================= */
+
+.navbar-toggle {
+    border-color: $white;
+  
+    .icon-bar {
+      background: $white;
+    }
+
+    &:hover
+    {
+        background:#285070;
+    }
+}
+
+.navbar-header
+{
+    button:not(.collapsed){
+        background:#222d32;
+    }
+    button:not(.collapsed):hover{
+        background:#285070;
+    }
+}
+
+/* ===========================================
+ submenu
+============================================= */
+
+.dropdown-menu {
+    background: #285070;
+    padding: 0;
+  
+    .divider {
+      margin: 0;
+    }
+  
+    li:not(.divider) a {
+      margin: 0;
+      padding: 10px 20px;
+    }
+  
+    & > li >a {
+      color: $white;
+    }
+  }
+
+  .dropdown-menu > li > a:hover,
+  .dropdown-menu > li > a:focus {
+    background: #3c8dbc;
+    color: $white;
+  }
+  // background: #222d32;
+  
+
+  
+  .navbar-nav .open .dropdown-menu {
+    background: #285070;
+  }
+
+  
+  //Logo & icons
+  .logo,
+  .about,
+  .account,
+  .career,
+  .signup,
+  .story,
+  .support,
+  .team {
+    object-fit: none;
+  }
+  
+  .logo {
+    height: 40px;
+    object-position: -20px 0;
+    width: 40px;
+  }
+  
+  .about,
+  .account,
+  .career,
+  .signup,
+  .story,
+  .support,
+  .team {
+    height: 20px;
+    width: 20px;
+  }
+  
+  .about {
+    object-position: -20px -60px;
+  }
+  
+  .account {
+    object-position: -20px -100px;
+  }
+  
+  .career {
+    object-position: -20px -140px;
+  }
+  
+  .signup {
+    object-position: -20px -180px;
+  }
+  
+  .story {
+    object-position: -20px -220px;
+   }
+  
+   .support {
+     object-position: -20px -260px;
+   }
+  
+  .team {
+     object-position: -20px -300px;
+   }
