@@ -2,9 +2,10 @@
 Constructed a clone of Yelp using following technology
 - Laravel
 - Bootstrap
-- Jquery
+- Javascript & JQgiuery
 - MySQL
 - Sqlite
+- CSS (SCSS)
 
 
 ## Screenshots
@@ -33,6 +34,7 @@ installed.
 git clone https://github.com/KKOA/foodreview-laravel.git
 cd foodreview-laravel
 composer update
+php artisan key:generate
 ```
 
 ## Run Application
