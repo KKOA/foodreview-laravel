@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Website Root
+Route::get('/', 'RestaurantController@index');
+
+// Restaurant CRUD routes
+Route::resource('/restaurants','RestaurantController');
