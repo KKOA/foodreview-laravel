@@ -20,7 +20,7 @@ Constructed a clone of Yelp using following technology
 ![Individual Restaurant](https://github.com/KKOA/sonar-rails/blob/master/Property.png) -->
 
 ## Live version
-<!-- http://foodreview-laravel.heroku.com/ -->
+https://foodreview-laravel.herokuapp.com/
 
 ## Setup Application
 This insallation assumes have 
