@@ -26,40 +26,40 @@
           </a>
         </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="/about" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               About
               <img src="{{asset('imgs/sprite.png')}}" class="about" alt="About">
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Our Story
+                <a href="/about/history">Our Story
                   <img src="{{asset('imgs/sprite.png')}}" class="story" alt="History">
                 </a>
               </li>
               <li>
-                <a href="#">Team
+                <a href="/about/team">Team
                   <img src="{{asset('imgs/sprite.png')}}" class="team" alt="Team">
                 </a>
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#">Careers
+                <a href="/about/career">Careers
                   <img src="{{asset('imgs/sprite.png')}}" class="career"  alt="Career">
                 </a>
               </li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a href="/support" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Support <img src="{{asset('imgs/sprite.png')}}" class="support"  alt="Career">
   
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Contact <i class='glyphicon glyphicon-envelope'></i></a></li>
+              <li><a href="/support/contact">Contact <i class='glyphicon glyphicon-envelope'></i></a></li>
               <li role="separator" class="divider"></li>
-             <li><a href="#">FAQs <i class='glyphicon glyphicon-question-sign'></i></a></li>
+             <li><a href="/support/faqs">FAQs <i class='glyphicon glyphicon-question-sign'></i></a></li>
             </ul>
           </li>
         </ul>
