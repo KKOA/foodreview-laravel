@@ -1,9 +1,12 @@
 {{-- inherit from master blade.php --}}
 @extends('layouts.master')
 
-@section('title', 'FoodReview')
-@section('content')
+@section('meta')
+    <meta name="description" content="All Restaurants">
+    @overwrite
+@section('title', '- Restaurants')
 
+@section('content')
     <h1 class="text-center">Restaurants</h1>
     <div class="text-center">
     <a href="{{route('restaurants.create')}}" class="btn btn-primary btn-lg">
