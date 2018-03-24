@@ -16,7 +16,11 @@
 // });
 
 // Website Root
-Route::get('/', 'RestaurantController@index');
+// Route::get('/', 'RestaurantController@index');
+Route::get('/', function () {
+    return redirect('/restaurants');
+});
+
 
 // Restaurant CRUD routes
 Route::resource('/restaurants','RestaurantController');
