@@ -27,7 +27,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $restaurant = new Restaurant();
+        return view('restaurants.create', compact('restaurant'));
     }
 
     /**
@@ -38,7 +39,16 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:restaurants|min:3|max:255',
+            'description' => 'required|min:3',
+          ]);
+
+        $restaurant = new Restaurant();
+        $restaurant->name = $request->name;
+        $restaurant->description = $request->description;
+        $restaurant->save();
+        return redirect('/restaurants')->with('success','Restaurant Created');
     }
 
     /**
