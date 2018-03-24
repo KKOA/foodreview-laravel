@@ -14,6 +14,12 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('imgs/favicon/favicon-16x16.png') }}">
         <link rel="manifest" href="{{ asset('imgs/favicon/site.webmanifest') }}">
         <link rel="mask-icon" href="{{ asset('imgs/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+        
+        <!-- Custom Meta -->
+        @section('meta')
+        <meta name="description" content="Restaurant review written by chef, food taster and you">
+        @endsection
+        @yield('meta')
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -27,14 +33,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="{{asset('js/master.js')}}"></script>
 
-        <title>@yield('title')</title>
+        <title>Foodreview @yield('title')</title>
     </head>
     <body>
-        @include('layouts.header')
+        @include('inc.header')
         <div class='container-fluid'>
+                @include('inc.messages')
             {{--  @include('inc.message')  --}}
             @yield('content')
         </div>
-        @include('layouts.footer')
+        @include('inc.footer')
+        @yield('script')
     </body>
 </html>
