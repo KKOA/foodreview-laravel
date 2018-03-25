@@ -150,6 +150,9 @@ return [
         // Laravel Collective form 
         Collective\Html\HtmlServiceProvider::class,
 
+        //CKEditor Package - WYSIWYG Editor
+        Unisharp\Ckeditor\ServiceProvider::class,
+        
         /*
          * Package Service Providers...
          */
