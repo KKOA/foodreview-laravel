@@ -106,9 +106,6 @@ $(document).ready(function () {
       scrollTop: 0
     }, 500);
   });
-
-  //CKEditor Package - WYSIWYG Editor
-  $('textarea').ckeditor();
 });
 
 /***/ }),
