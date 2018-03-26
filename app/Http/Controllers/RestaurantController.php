@@ -15,8 +15,6 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = Restaurant::all();
-        // $restaurants = [];
-        // return $restaurants;
         return view('restaurants.index',compact('restaurants'));
     }
 
@@ -42,7 +40,7 @@ class RestaurantController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:restaurants|min:3|max:255',
             'description' => 'required|min:3',
-          ]);
+        ]);
 
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
@@ -59,7 +57,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -70,7 +68,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        return view('restaurants.edit', compact('restaurant'));
     }
 
     /**
@@ -82,7 +80,16 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $validatedData = $request->validate([
+        'name' => 'required|min:3|max:255|unique:restaurants,name,'.$restaurant->id,
+        'description' => 'required|min:3',
+        ]);
+
+        $restaurant->name= $request->name;
+        $restaurant->description= $request->description;
+        $restaurant->save();   
+        return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success','Restaurant Updated');
+              
     }
 
     /**
