@@ -10,7 +10,6 @@
         </button>
   
         <a class="navbar-brand" href="/">FoodReview
-          {{-- <img src="{{asset('imgs/foodreview40x40-min.png')}}" class="brand-image img-responsive" alt='Logo'> --}}
           <img src="{{asset('imgs/sprite.png')}}" class="brand-image img-responsive logo" alt='Logo' id='brand-image'>
   
         </a>
@@ -32,6 +31,11 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
+                <li>
+                    <a href="/about">About Topics
+                      <img src="{{asset('imgs/sprite.png')}}" class="about" alt="About">
+                    </a>
+                  </li>
               <li>
                 <a href="/about/history">Our Story
                   <img src="{{asset('imgs/sprite.png')}}" class="story" alt="History">
@@ -57,9 +61,21 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/support/contact">Contact <i class='glyphicon glyphicon-envelope'></i></a></li>
+              <li>
+                  <a href="/support/">
+                    Support Topics
+                    <img src="{{asset('imgs/sprite.png')}}" class="support"  alt="Career">
+                  </a>
+              </li>
+              <li>
+                <a href="/support/contact">
+                  Contact <i class='glyphicon glyphicon-envelope'></i>
+                </a>
+              </li>
               <li role="separator" class="divider"></li>
-             <li><a href="/support/faqs">FAQs <i class='glyphicon glyphicon-question-sign'></i></a></li>
+             <li>
+               <a href="/support/faqs">FAQs <i class='glyphicon glyphicon-question-sign'></i></a>
+              </li>
             </ul>
           </li>
         </ul>

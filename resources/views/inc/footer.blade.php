@@ -11,15 +11,15 @@
                     <ul>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a href="#" title='company histroy and values'>Our Story</a>
+                            <a href="/about/history" title='company histroy and values'>Our Story</a>
                         </li>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a href="#" title="Our Team">Agents</a>
+                            <a href="/about/team" title="Our Team">Agents</a>
                         </li>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a href="#" title="Career opportunities">Careers</a>
+                            <a href="/about/career" title="Career opportunities">Careers</a>
                         </li>
                     </ul>
                 </div>
@@ -31,11 +31,11 @@
                     <ul>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a href="#" title='Contact us'>Contact Us</a>
+                            <a href="/support/contact" title='Contact us'>Contact Us</a>
                         </li>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a href="#" title="Frequently Asked Questions">FAQs</a>
+                            <a href="/support/faqs" title="Frequently Asked Questions">FAQs</a>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +50,7 @@
                         </li>
                         <li>
                             <i class="fa fa-caret-right"></i>
-                            <a title="Restaurant" href="#">Restaurants</a>
+                            <a title="Restaurant" href="/">Restaurants</a>
                         </li>
                         <li>
                             <i class="fa fa-caret-right"></i>
