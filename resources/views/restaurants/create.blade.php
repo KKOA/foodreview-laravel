@@ -15,11 +15,11 @@
     {!! Form::model($restaurant, ['route' => ['restaurants.store', $restaurant->id],'class'=>'form-horizontal']) !!}
         @include('inc.restaurantform')
         <div class='form-group'>
-            <div class='col-sm-offset-2 col-sm-10'>
+            <div class='col-sm-offset-2 col-sm-9'>
                 <a href='{{route('restaurants.index')}}' link_to restaurants_path, class='btn btn-primary btn-lg pull-left' title='See all restaurants'>
                     Cancel <i class='glyphicon glyphicon-remove-circle'></i>
                 </a>
-                {!! Form::button('Save Restaurant <i class="glyphicon glyphicon-save"></i>', ['class' => 'btn btn-primary btn-lg pull-right','type' => 'submit']) !!}
+                {!! Form::button('Add Restaurant <i class="glyphicon glyphicon-save"></i>', ['class' => 'btn btn-success btn-lg pull-right','type' => 'submit']) !!}
             </div>
         </div>
 		{!! Form::close() !!}
