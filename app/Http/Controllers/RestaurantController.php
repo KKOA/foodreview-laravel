@@ -14,7 +14,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        // $restaurants = Restaurant::all();
+        $restaurants = Restaurant::orderBy('name','asc')->paginate(3);
         return view('restaurants.index',compact('restaurants'));
     }
 
@@ -46,7 +47,7 @@ class RestaurantController extends Controller
         $restaurant->name = $request->name;
         $restaurant->description = $request->description;
         $restaurant->save();
-        return redirect('/restaurants')->with('success','Restaurant Created');
+        return redirect('/restaurants')->with('success',$restaurant->name ." restaurant created");
     }
 
     /**
@@ -88,7 +89,7 @@ class RestaurantController extends Controller
         $restaurant->name= $request->name;
         $restaurant->description= $request->description;
         $restaurant->save();   
-        return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success','Restaurant Updated');
+        return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success',$restaurant->name." restaurant updated");
               
     }
 
@@ -100,6 +101,8 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $name = $restaurant->name;
+        $restaurant->delete();
+        return redirect()->route('restaurants.index')->with('success'," $name restaurant Deleted");
     }
 }
