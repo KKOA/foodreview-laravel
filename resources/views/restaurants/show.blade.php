@@ -13,7 +13,7 @@
     <div class='restaurant col-sm-7' style='padding:15px; margin-left:0;margin-right:0;'>
             <h2 class='text-center restaurant-name'>{{$restaurant->name}}</h2>
             Image<br>[image here]<br>
-            {{--  <h3>{{$restaurant->full_address()}}</h3>  --}}
+            <h3>{{$restaurant->full_address()}}</h3>
             <div class='row' style='margin-left:0; margin-right:0'>
                 <ul class='more-info'>
                   <li class="clearfix col-sm-11 col-sm-center-offset-1">
