@@ -21,44 +21,78 @@ class RestaurantsSeeder extends Seeder
         Restaurant::firstOrCreate(
             ['name'=>'Infamous Diner'],
             [
-                'name'=>'Infamous Diner',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Infamous Diner',
+                'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '3-5 Basil Chambers Nicholas Croft',
+                'address2'      =>  '',
+                'city'          =>  'Manchester',
+                'county'        =>  '',
+                'postcode'      =>  'M4 1EY'
             ]
         );
 
         Restaurant::firstOrCreate(
             ['name'=>'Los Gatos'],
             [
-                'name'=>'Los Gatos',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Los Gatos',
+                'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '1-3 Devizes Road',
+                'address2'      =>  'Old Town',
+                'city'          =>  'Swindon',
+                'county'        =>  '',
+                'postcode'      =>  'SN4 4BJ'
             ]
         );
+
         Restaurant::firstOrCreate(
             ['name'=>'Nur'],
             [
-                'name'=>'Nur',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Nur',
+                'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '22 Bridge Street',
+                'address2'      =>  '',
+                'city'          =>  'Glasgow',
+                'county'        =>  '',
+                'postcode'      =>  'G5 9HR'
             ]
         );
+
         Restaurant::firstOrCreate(
             ['name'=>'Thai Garden'],
             [
-                'name'=>'Thai Garden',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Thai Garden',
+                'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '100 West Street',
+                'address2'      =>  '',
+                'city'          =>  'Bristol',
+                'county'        =>  '',
+                'postcode'      =>  'BS3 3LR'
             ]
         );
+
         Restaurant::firstOrCreate(
             ['name'=>'Amigos Mexican Restaurant'],
             [
-                'name'=>'Amigos Mexican Restaurant',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Amigos Mexican Restaurant',
+                'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '41 Friar Street',
+                'address2'      =>  '',
+                'city'          =>  'Worchester',
+                'county'        =>  '',
+                'postcode'      =>  'WR1 2NA'
             ]
         );
+
         Restaurant::firstOrCreate(
             ['name'=>'Lebaneat'],
             [
-                'name'=>'Lebaneat',
-                'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'name'          =>  'Lebaneat',
+                'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+                'address1'      =>  '47 North Baliey',
+                'address2'      =>  '',
+                'city'          =>  'Durham',
+                'county'        =>  '',
+                'postcode'      =>  'DH1 3ET'
             ]
         );
     }
