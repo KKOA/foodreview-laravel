@@ -44,5 +44,16 @@
         </div>
         @include('inc.footer')
         @yield('script')
+        <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+        <script>
+            $(document).ready(function(){
+                if($('#article-ckeditor').length)
+                {
+                    CKEDITOR.replace( 'article-ckeditor' );
+                }
+            });
+        </script>
+
+
     </body>
 </html>
