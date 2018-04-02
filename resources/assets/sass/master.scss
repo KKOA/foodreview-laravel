@@ -17,7 +17,8 @@
 body {
     background: $body-bg;
     color: $body-color;
-    font-size: 12px;
+	// font-size: 12px;
+	font-size:16px;
   }
   
   @media (min-width: 768px) {
@@ -39,11 +40,38 @@ body {
 				// background: #0000b3;
 					background:#286090;
   }
+
+  .btn-success
+  {
+	// background: #5cb85c;
+    background: #317231;
+  }
+
+  .btn-success:hover
+  {
+	// background: #398439; 
+	background: #204b20;
+  }
+
+  .btn-danger
+  {
+    background: $red;
+  }
+
+  .btn-danger:hover
+  {
+	background: #800000;
+  }
   @import 'header';
 
 /* ===========================================
  Main
 ============================================= */
+
+.result
+{
+	margin-top:20px;
+}
 
 .restaurants {
 	margin: auto;
@@ -89,6 +117,19 @@ body {
 	width: 100%;
 }
 
+/* ==========================================================
+! RestaurantForm
+========================================================== */
+
+textarea{
+	resize:vertical;
+}
+
+.required
+{
+	color:$red;
+	font-weight:bold;
+}
 
 /* ==========================================================
 ! Scroll to top link

@@ -13,7 +13,7 @@
 body {
   background: #ecf0f5;
   color: #666;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) {
@@ -29,6 +29,22 @@ body {
 
 .btn-primary:hover {
   background: #286090;
+}
+
+.btn-success {
+  background: #317231;
+}
+
+.btn-success:hover {
+  background: #204b20;
+}
+
+.btn-danger {
+  background: #a80000;
+}
+
+.btn-danger:hover {
+  background: #800000;
 }
 
 /* ===========================================
@@ -59,6 +75,7 @@ body {
 
 .navbar-brand {
   font-size: 25px;
+  padding: 15px 10px;
   text-shadow: #000 1px 0 10px;
 }
 
@@ -202,6 +219,10 @@ body {
  Main
 ============================================= */
 
+.result {
+  margin-top: 20px;
+}
+
 .restaurants {
   margin: auto;
   padding-left: 0;
@@ -243,6 +264,19 @@ body {
 .more-btn {
   margin-top: 5px;
   width: 100%;
+}
+
+/* ==========================================================
+! RestaurantForm
+========================================================== */
+
+textarea {
+  resize: vertical;
+}
+
+.required {
+  color: #a80000;
+  font-weight: bold;
 }
 
 /* ==========================================================
