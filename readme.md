@@ -2,7 +2,7 @@
 Constructed a clone of Yelp using following technology
 - Laravel
 - Bootstrap
-- Javascript & JQgiuery
+- Javascript & Jquery
 - MySQL
 - Sqlite
 - CSS (SCSS)
