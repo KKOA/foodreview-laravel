@@ -17,11 +17,16 @@ class RestaurantsSeeder extends Seeder
      */
     public function run()
     {
+        $restaurantImg = '/imgs/restaurants/';
         $faker = Faker\Factory::create();
-        Restaurant::firstOrCreate(
+
+
+
+        $restaurant1 = Restaurant::firstOrCreate(
             ['name'=>'El Greco'], //Greek
             [
                 'name'          =>  'El Greco',
+                'slug'          =>  'el-greco',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '27 Rother Street',
                 'address2'      =>  '',
@@ -30,10 +35,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'CV37 6QB'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant2 = Restaurant::firstOrCreate(
             ['name'=>'Reubens'], //Russina
             [
                 'name'          =>  'Reubens',
+                'slug'          =>  'reubens',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '79 Baker Street',
                 'address2'      =>  '',
@@ -42,10 +48,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'W1U 6AG'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant3 = Restaurant::firstOrCreate(
             ['name'=>'Laduree UK'], //Swedish
             [
                 'name'          =>  'Laduree UK',
+                'slug'          =>  'laduree-uk',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '71 Burlington Arcade',
                 'address2'      =>  '',
@@ -54,10 +61,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'W1J 0QX'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant4 = Restaurant::firstOrCreate(
             ['name'=>'Sorrentino Restaurant'], //Italien
             [
                 'name'          =>  'Sorrentino Restaurant',
+                'slug'          =>  'sorrentino-restaurant',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '64 Gold Street',
                 'address2'      =>  '',
@@ -66,10 +74,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'NN1 1RS'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant5 = Restaurant::firstOrCreate(
             ['name'=>'Makara'], //Turkish
             [
                 'name'          =>  'Makara',
+                'slug'          =>  'makara',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '28 Church Road',
                 'address2'      =>  '',
@@ -78,10 +87,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'BN3 2FN'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant6 = Restaurant::firstOrCreate(
             ['name'=>'Tenkaichi'], //Japanense
             [
                 'name'          =>  'Tenkaichi',
+                'slug'          =>  'tenkaichi',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '236 City Road',
                 'address2'      =>  '',
@@ -91,10 +101,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant7 = Restaurant::firstOrCreate(
             ['name'=>'Bear & Billet'],//German
             [
                 'name'          =>  'Bear & Billet',
+                'slug'          =>  'bear-&-billet',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '94 Lower Bridge Street',
                 'address2'      =>  '',
@@ -104,10 +115,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant8 = Restaurant::firstOrCreate(
             ['name'=>'Akamba'], //African
             [
                 'name'          =>  'Akamba',
+                'slug'          =>  'akamba',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  'Tythe Barn Lane',
                 'address2'      =>  '',
@@ -116,10 +128,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'B90 1PH'
             ]
         );
-        Restaurant::firstOrCreate(
+        $restaurant9 = Restaurant::firstOrCreate(
             ['name'=>'Bistro Jacques'],//French
             [
                 'name'          =>  'Bistro Jacques',
+                'slug'          =>  'bistro-jacques',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '29 Claremount Street',
                 'address2'      =>  '',
@@ -128,10 +141,11 @@ class RestaurantsSeeder extends Seeder
                 'postcode'      =>  'SY1 1RD'
             ]
         );
-        Restaurant::firstOrCreate( //American
+        $restaurant10 = Restaurant::firstOrCreate( //American
             ['name'=>'Infamous Diner'],
             [
                 'name'          =>  'Infamous Diner',
+                'slug'          =>  'infamous-diner',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '3-5 Basil Chambers Nicholas Croft',
                 'address2'      =>  '',
@@ -141,10 +155,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant11 = Restaurant::firstOrCreate(
             ['name'=>'Los Gatos'], //Spanish
             [
                 'name'          =>  'Los Gatos',
+                'slug'          =>  'los-gatos',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '1-3 Devizes Road',
                 'address2'      =>  'Old Town',
@@ -154,10 +169,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant12 = Restaurant::firstOrCreate(
             ['name'=>'Nur'], //Egyptian
             [
                 'name'          =>  'Nur',
+                'slug'          =>  'nur',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '22 Bridge Street',
                 'address2'      =>  '',
@@ -167,10 +183,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant13 = Restaurant::firstOrCreate(
             ['name'=>'Thai Garden'], //Thai
             [
                 'name'          =>  'Thai Garden',
+                'slug'          =>  'thai-garden',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '100 West Street',
                 'address2'      =>  '',
@@ -180,10 +197,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant14 = Restaurant::firstOrCreate(
             ['name'=>'Amigos Mexican Restaurant'], //Mexican
             [
                 'name'          =>  'Amigos Mexican Restaurant',
+                'slug'          =>  'amigos-mexican-restaurant',
                 'description'   => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '41 Friar Street',
                 'address2'      =>  '',
@@ -193,10 +211,11 @@ class RestaurantsSeeder extends Seeder
             ]
         );
 
-        Restaurant::firstOrCreate(
+        $restaurant15 = Restaurant::firstOrCreate(
             ['name'=>'Lebaneat'], //Lebanese
             [
                 'name'          =>  'Lebaneat',
+                'slug'          =>  'lebaneat',
                 'description'   =>  $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'address1'      =>  '47 North Baliey',
                 'address2'      =>  '',
