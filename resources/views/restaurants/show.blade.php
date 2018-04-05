@@ -10,10 +10,51 @@
 </a>
 <div class='row'>
 
-    <div class='restaurant col-sm-7' style='padding:15px; margin-left:0;margin-right:0;'>
+    <div class='restaurant col-sm-7'>
             <h2 class='text-center restaurant-name'>{{$restaurant->name}}</h2>
-            Image<br>[image here]<br>
-            <h3>{{$restaurant->full_address()}}</h3>
+            {{-- Image<br>[image here]<br> --}}
+            {{--  --}}
+            {{-- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                  
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img class='img-responsive' src="https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&h=350 1x, https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350 2x" alt="...">
+                            <div class="carousel-caption">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img class='img-responsive' src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&h=350 1x, https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350 2x" alt="...">
+                            <div class="carousel-caption">
+                                <p>consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img class='img-responsive' src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&h=350 1x, https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350 2x" alt="...">
+                            <div class="carousel-caption">
+                                <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div> --}}
+            {{--  --}}
             <div class='row' style='margin-left:0; margin-right:0'>
                 <ul class='more-info'>
                   <li class="clearfix col-sm-11 col-sm-center-offset-1">
@@ -61,48 +102,31 @@
 
             <h3>DESCRIPTION</h3>
             {!!$restaurant->description!!}
-            <div class='restaurant-links text-center' style="margin-top:10px;">
-            <a href='{{route('restaurants.edit',[$restaurant->id])}}' class='btn btn-primary btn-lg pull-left' title='Modify current restaurant'>
-                Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
-            </a>
-            {{-- {{link_to_route('restaurants.edit', $title = "Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>", $parameters = ['id' =>$restaurant->id], $attributes = ['class'=>'btn btn-default'])}} --}}
-            {!!Form::open(['action'=>['RestaurantController@destroy',$restaurant->id],'method'=>'POST','class' => 'pull-right'])!!}
-              {!! Form::button('Delete Restaurant <i class="glyphicon glyphicon-trash"></i>', ['class' => 'btn btn-danger btn-lg','type' => 'submit']) !!}
-              {{Form::hidden('_method','DELETE')}}
-            {!!Form::close()!!}
 
-            </div>
+            <style>
 
-
-
-            {{-- <%= form_for @restaurant,:html => {class: "form-horizontal"}, method: "delete" do |form| %>
-                <h3> DELETE RESTAURANT</h3>
-                <p> By correclty entering the restaurant and click Delete restaurant button, you permanently delete this restaurant.</p>
-                <div class='form-group'>
-                    <div class='control-label col-sm-3 cosl-md-2'>
-                        <%= form.label :name do %>
-                            Name <span class="required">*</span>
-                        <% end %>
-                    </div>
-                    <div class='col-sm-8 col-md-9'>
-                        <%= form.text_field :name, class: 'form-control' ,value: '' %>
-                    </div>
+            </style>
+            <div class="row" style="margin-top:10px;">
+                <div class='col-xs-12 col-sm-6 col-lg-5'>
+                    <a href='{{route('restaurants.edit',[$restaurant->id])}}' id='edit-restaurant' class='btn btn-primary btn-lg' title='Modify current restaurant'>
+                        Edit Restaurant <i class='glyphicon glyphicon-pencil'></i>
+                    </a>
                 </div>
-                  <!-- <div class='col-md-offset-2 col-md-10'> -->
-                       <%= form.button class: 'btn btn-primary btn-lg col-xs-12', id: 'delete',disabled: true,
-                      data: { confirm: "Are you sure you want to delete #{@restaurant.name}?\n This action cannot be undone." } do %>
-                          Delete <%= @restaurant.name %> <i class='glyphicon glyphicon-trash'></i>
-                      <% end %>
-                      <div class='clearfix'></div>
-                  <!-- </div> -->
-            <% end %> --}}
-        <!-- </div> -->
+
+                <div class='col-xs-12 col-sm-6 col-lg-offset-2 col-lg-5'>
+                    {!!Form::open(['action'=>['RestaurantController@destroy',$restaurant->id],'method'=>'POST'])!!}
+                        {!! Form::button('Delete Restaurant <i class="glyphicon glyphicon-trash"></i>', ['id'=>'delete-restaurant','class' => 'btn btn-danger btn-lg','type' => 'submit']) !!}
+                        {{Form::hidden('_method','DELETE')}}
+                    {!!Form::close()!!}
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-4' style='padding:10px;' >
+            {{-- <%= render 'layouts/map' %> --}}
+            @include('inc.map')
+            <%= render 'layouts/owner' %>
+            <%= render 'layouts/search_form' %>
+        </div>
     </div>
-    <div class='col-sm-4' style='padding:15px;' >
-        <%= render 'layouts/map' %>
-        <%= render 'layouts/owner' %>
-        <%= render 'layouts/search_form' %>
-    </div>
-</div>
 
 @endsection
