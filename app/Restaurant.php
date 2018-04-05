@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     //whitelist fields for mass assignment
-    protected $fillable =['name','description','address1','address2','city','county','postcode'];
+    protected $fillable =['name','slug','description','address1','address2','city','county','postcode'];
+
+    function slugify($string)
+    {
+        $slug = strtolower($string);
+        $slug = preg_replace("/\s-?&-?\s/", "-and-", $slug); // & with -and-
+        $slug = iconv("utf-8", "ascii//TRANSLIT", $slug); //Replace utf-8 characters with 7-bit ASCII equivalents
+        $slug = preg_replace("/[^a-z0-9-]+/", "-", $slug);// Replace any non-alphanumeric character with hypens
+        return trim($slug,"-"); //Remove leading or trailing hypens
+    }
 
     function not_blank($element)
     {
@@ -59,5 +68,7 @@ class Restaurant extends Model
     public function setPostcodeAttribute($value){
         $this->attributes['postcode'] = strtoupper($value);
     }
+
+
 
 }
