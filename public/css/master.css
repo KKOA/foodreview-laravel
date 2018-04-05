@@ -47,6 +47,15 @@ body {
   background: #800000;
 }
 
+.url {
+  letter-spacing: 1px;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 /* ===========================================
  Header
 ============================================= */
@@ -266,6 +275,12 @@ body {
   width: 100%;
 }
 
+#delete-restaurant,
+#edit-restaurant {
+  margin-top: 10px;
+  width: 100%;
+}
+
 /* ==========================================================
 ! RestaurantForm
 ========================================================== */
@@ -277,6 +292,29 @@ textarea {
 .required {
   color: #a80000;
   font-weight: bold;
+}
+
+#slug-group {
+  margin-bottom: 60px;
+}
+
+/* ==========================================================
+! Tooltip - forms
+========================================================== */
+
+[role="tooltip"] {
+  display: none;
+  padding: 6px 12px;
+  width: 100%;
+  z-index: 2;
+  background: white;
+  border: 1px solid #000;
+}
+
+input:focus + [role="tooltip"] {
+  display: block;
+  position: absolute;
+  top: 100%;
 }
 
 /* ==========================================================
