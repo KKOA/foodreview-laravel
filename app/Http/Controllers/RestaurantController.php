@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Restaurant;
+use App\Rules\UnquieSlug;
+use App\Rules\SlugFormat;
 use Illuminate\Http\Request;
+use Storage;
+use File;
 
 class RestaurantController extends Controller
 {
@@ -15,7 +20,7 @@ class RestaurantController extends Controller
     public function index()
     {
         // $restaurants = Restaurant::all();
-        $restaurants = Restaurant::orderBy('name','asc')->paginate(10);
+        $restaurants = Restaurant::orderBy('name','asc')->paginate(12);
         return view('restaurants.index',compact('restaurants'));
     }
 
@@ -40,6 +45,7 @@ class RestaurantController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|unique:restaurants|min:3|max:255',
+            'slug'  => ['required', new SlugFormat(), new UnquieSlug()],
             'description' => 'required|min:3',
             'address1' => 'required|min:3|max:255',
             'city' => 'required|min:3|max:255',
@@ -48,13 +54,19 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
+        $restaurant->slug = $restaurant->slugify($request->slug);
         $restaurant->description = $request->description;
-        $restaurant->address1= $request->address1;
-        $restaurant->address2= $request->address2;
-        $restaurant->city= $request->city;
-        $restaurant->county= $request->county;
-        $restaurant->postcode= $request->postcode;
+        $restaurant->address1 = $request->address1;
+        $restaurant->address2 = $request->address2;
+        $restaurant->city = $request->city;
+        $restaurant->county = $request->county;
+        $restaurant->postcode = $request->postcode;
         $restaurant->save();
+        if(! File::exists(public_path().'/imgs/restaurants/'.$restaurant->slug.'/'))
+        {
+            //Create directory
+            File::makeDirectory(public_path().'/imgs/restaurants/'.$restaurant->slug.'/');
+        }
         return redirect('/restaurants')->with('success',$restaurant->name ." restaurant created");
     }
 
@@ -65,7 +77,10 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Restaurant $restaurant)
+    // public function show($name)
     {
+        // $name = 'd';
+        // $restaurant = Restaurant::where('slug','=',$name)->first();
         return view('restaurants.show', compact('restaurant'));
     }
 
@@ -77,6 +92,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
+        // $restaurant = Restaurant::where('id','=',$id)->first();
         return view('restaurants.edit', compact('restaurant'));
     }
 
@@ -89,8 +105,10 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
+        // return $restaurant->id;
         $validatedData = $request->validate([
         'name' => 'required|min:3|max:255|unique:restaurants,name,'.$restaurant->id,
+        'slug'  => ['required', new SlugFormat, new UnquieSlug($restaurant->id)],
         'description' => 'required|min:3',
         'address1' => 'required|min:3|max:255',
         'city' => 'required|min:3|max:255',
@@ -98,15 +116,17 @@ class RestaurantController extends Controller
         ]);
 
         $restaurant->name= $request->name;
+        $restaurant->slug = $restaurant->slugify($request->slug);
         $restaurant->description= $request->description;
         $restaurant->address1= $request->address1;
         $restaurant->address2= $request->address2;
         $restaurant->city= $request->city;
         $restaurant->county= $request->county;
         $restaurant->postcode= $request->postcode;
-        $restaurant->save();   
+        $restaurant->save();  
+
         return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success',$restaurant->name." restaurant updated");
-              
+     
     }
 
     /**
