@@ -27,3 +27,8 @@
 </div>
 
 @endsection
+
+@section('script')
+    <script src="{{asset('js/populate-slug.js')}}"></script>
+@endsection
+
