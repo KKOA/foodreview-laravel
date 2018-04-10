@@ -3,8 +3,7 @@ Constructed a clone of Yelp using following technology
 - Laravel
 - Bootstrap
 - Javascript & Jquery
-- MySQL
-- Sqlite
+- MySQL<!-- - Sqlite -->
 - CSS (SCSS)
 
 
@@ -27,6 +26,7 @@ This insallation assumes have
 - MySQL
 - PHP7
 - Composer
+- npm
 
 installed.
 
@@ -35,6 +35,7 @@ git clone https://github.com/KKOA/foodreview-laravel.git
 cd foodreview-laravel
 composer update
 php artisan key:generate
+npm install
 ```
 
 ## Run Application
