@@ -62,11 +62,15 @@ class RestaurantController extends Controller
         $restaurant->county = $request->county;
         $restaurant->postcode = $request->postcode;
         $restaurant->save();
-        if(! File::exists(public_path().'/imgs/restaurants/'.$restaurant->slug.'/'))
-        {
-            //Create directory
-            File::makeDirectory(public_path().'/imgs/restaurants/'.$restaurant->slug.'/');
-        }
+
+        $newFolder = public_path().'/imgs/restaurants/'.$restaurant->slug.'/';
+        $this->createFolder($newFolder);
+        // if(! File::exists(public_path().'/imgs/restaurants/'.$restaurant->slug.'/'))
+        // {
+        //     //Create directory
+        //     File::makeDirectory(public_path().'/imgs/restaurants/'.$restaurant->slug.'/');
+        // }
+
         return redirect('/restaurants')->with('success',$restaurant->name ." restaurant created");
     }
 
@@ -105,6 +109,7 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
+        
         // return $restaurant->id;
         $validatedData = $request->validate([
         'name' => 'required|min:3|max:255|unique:restaurants,name,'.$restaurant->id,
@@ -116,16 +121,28 @@ class RestaurantController extends Controller
         ]);
 
         $restaurant->name= $request->name;
+
+        $oldSlug = $restaurant->slug;
         $restaurant->slug = $restaurant->slugify($request->slug);
-        $restaurant->description= $request->description;
-        $restaurant->address1= $request->address1;
-        $restaurant->address2= $request->address2;
-        $restaurant->city= $request->city;
-        $restaurant->county= $request->county;
-        $restaurant->postcode= $request->postcode;
+
+        // Check if slug has changed
+        if($oldSlug != $restaurant->slug)
+        {
+            $imgRestaurantsFolder = public_path().'/imgs/restaurants/';
+            $oldFolder = $imgRestaurantsFolder.$oldSlug.'/';
+            $newFolder = $imgRestaurantsFolder .$restaurant->slug.'/';
+            $this->moveImages($oldFolder,$newFolder);
+        }
+
+        $restaurant->description = $request->description;
+        $restaurant->address1 = $request->address1;
+        $restaurant->address2 = $request->address2;
+        $restaurant->city = $request->city;
+        $restaurant->county = $request->county;
+        $restaurant->postcode = $request->postcode;
         $restaurant->save();  
 
-        return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success',$restaurant->name." restaurant updated");
+        return redirect()->route('restaurants.show',['restaurant' => $restaurant])->with('success',$restaurant->name." restaurant updated ");
      
     }
 
@@ -138,7 +155,35 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $name = $restaurant->name;
+        $slug = $restaurant->slug;
         $restaurant->delete();
+        $directory = public_path("imgs/restaurants/".$slug);
+        if(File::exists($directory)) // Check if restaurant directory exist in public/imgs
+        {
+            File::deleteDirectory($directory); // Delete directory
+        }
         return redirect()->route('restaurants.index')->with('success'," $name restaurant Deleted");
+    }
+
+    private function createFolder($folder)
+    {
+        //create Folder
+        if(! File::exists($folder))
+        {
+            //Create directory new directory
+            File::makeDirectory($folder);
+        }
+    }
+
+    private function moveImages($oldFolder,$newFolder) //Need to method renameDirectory
+    {
+        //Check new slug directory
+        $this->createFolder($newFolder);
+
+        //Copy Folder
+        File::copyDirectory($oldFolder,$newFolder);
+
+        // Delete old directory
+        File::deleteDirectory($oldFolder);
     }
 }
